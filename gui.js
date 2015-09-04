@@ -190,6 +190,14 @@ define(function(require, module, exports) {
                             }
 
                             var c = 300;
+                             // START - logic to sort custom Builders
+                            if(names.length > 5) {
+	                            // storing the pre-build 5 builder names in variable - CoffeeScript","SASS (scss)","less","stylus","typescript"
+	                            var sortedNames = names.slice(0,5);
+	                            // Sorting the custom Builders and appending to main list
+	                            names = sortedNames.concat(names.slice(5,names.length).sort());
+                            }   
+                            // END
                             names.forEach(function(name) {
                                 menus.addItemToMenu(mnuRunAs, new ui.item({
                                     caption: uCaseFirst(name),
